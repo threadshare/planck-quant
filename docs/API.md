@@ -1,23 +1,48 @@
 ## 目录
 
 - [策略全局变量](#策略全局变量)
-  - [exchange](#exchange)
-  - [exchanges](#exchanges)
+    + [exchange](#exchange)
+    + [exchanges](#exchanges)
 - [订单状态](#订单状态)
 - [订单买卖类型](#订单买卖类型)
 - [数据结构定义](#数据结构定义)
-  - [Trade](#trade)
-  - [Ticker](#ticker)
-  - [Record](#record)
-  - [Order](#order)
-  - [MarketOrder](#marketorder)
-  - [Depth](#depth)
-  - [Account](#account)
-- [行情 API](#行情 API)
-- [交易 API](#交易 API)
-  - [exchange.Buy(Price, Amount)](#exchangebuy)
-- [账户信息](#账户信息)
-- [TA - 常用指标优化库](#TA - 常用指标优化库)
+    + [Trade](#trade)
+    + [Ticker](#ticker)
+    + [Record](#record)
+    + [Order](#order)
+    + [MarketOrder](#marketorder)
+    + [Depth](#depth)
+    + [Account](#account)
+- [行情 API](#---api)
+  * [exchange.GetTicker()](#exchangegetticker--)
+  * [exchange.GetDepth()](#exchangegetdepth--)
+  * [exchange.GetTrades()](#exchangegettrades--)
+  * [exchange.GetRecords()](#exchangegetrecords--)
+  * [exchange.GetRate()](#exchangegetrate--)
+  * [exchange.GetUSDCNY()](#exchangegetusdcny--)
+- [交易 API](#---api)
+  * [exchange.Buy(Price, Amount)](#exchangebuy-price--amount-)
+  * [exchange.Sell(Price, Amount)](#exchangesell-price--amount-)
+  * [exchange.CancelOrder(Id)](#exchangecancelorder-id-)
+  * [exchange.GetOrder(Id)](#exchangegetorder-id-)
+  * [exchange.GetOrders()](#exchangegetorders--)
+  * [exchange.SetPrecision(...)](#exchangesetprecision--)
+  * [exchange.SetRate(Rate)](#exchangesetrate-rate-)
+- [账户信息](#----)
+  * [exchange.GetAccount()](#exchangegetaccount--)
+  * [exchange.GetCurrency()](#exchangegetcurrency--)
+  * [exchange.GetQuoteCurrency()](#exchangegetquotecurrency--)
+- [TA - 常用指标优化库](#ta----------)
+  * [MACD, 指数平滑异同平均线](#macd-----------)
+  * [KDJ, 随机指标](#kdj------)
+  * [RSI, 强弱指标](#rsi------)
+  * [ATR, 平均真实波幅](#atr--------)
+  * [OBV, 能量潮](#obv-----)
+  * [MA, 移动平均线](#ma-------)
+  * [EMA, 指数平均数指标](#ema---------)
+  * [BOLL, 布林带](#boll-----)
+  * [Highest, 周期最高价](#highest-------)
+  * [Lowest, 周期最低价](#lowest-------)
 
 ### 策略全局变量
 
@@ -177,12 +202,12 @@
 
 主要的行情接口函数：
 
-| 函数名     | 说明                                                         |
-| :--------- | :----------------------------------------------------------- |
-| GetTicker  | [获取 tick 行情](#exchangegetticker)                         |
-| GetRecords | [获取 K 线数据](javascript:gotoElement('user-content-exchange.getrecords')) |
-| GetDepth   | [获取订单薄数据 (订单深度数据)](javascript:gotoElement('user-content-exchange.getdepth')) |
-| GetTrades  | [获取市场上最近交易记录](javascript:gotoElement('user-content-exchange.gettrades')) |
+| 函数名     | 说明                                               |
+| :--------- | :------------------------------------------------- |
+| GetTicker  | [获取 tick 行情](#exchangegetticker)               |
+| GetRecords | [获取 K 线数据](#exchangegetrecord)                |
+| GetDepth   | [获取订单薄数据 (订单深度数据)](#exchangegetdepth) |
+| GetTrades  | [获取市场上最近交易记录](#exchangegettrades)       |
 
 #### exchange.GetTicker()
 
